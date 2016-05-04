@@ -1,4 +1,4 @@
-var count = 0;
+
 
 $(document).ready(function(){
 
@@ -17,38 +17,49 @@ $(document).ready(function(){
 
 });
 
-function newGame () {
+function newGame() {
 
 	secretNumber();
 
 	$("#guessButton").click(function(e) {
 		e.preventDefault();
 		guessCount();
-//		$("#userGuess").val(placeholder="Enter another guess!");
+//		$("#userGuess").val(placeholder="Enter another guess!");	
+		addGuess();
 		Clear();
+
 
 	});
 
 }
 
-//generate random secret number
+/* generate random secret number */
 
-function secretNumber () {
+function secretNumber() {
 	var number = Math.floor((Math.random() * 100) + 1);
 	console.log(number);
 };
 
-//increment guess counter by 1
+/* guess counter increases by 1 with each button press */
+var count = 0;
 
-function guessCount(){
+function guessCount() {
 	count++; 
 	$("#count").text(count);
 };
 
-//clear input form
+/* clear input form */
 
 function Clear() {      
-    $("#userGuess").each(function () {
-  	$(this).val("");
+    $("#userGuess").each(function() {
+    $(this).val("");
+//  $this.reset();
     });
+}
+
+function addGuess() {
+	var getGuess = $("#userGuess").val();
+	$("#guessList").append("<li>" + getGuess + "</li>");
+//	var appendGuess = "<li>" + getGuess + "</li>";
+//	$("#guessList").append(appendGuess);
 }
