@@ -1,5 +1,7 @@
 
 $(document).ready(function(){
+
+	newGame();
 	
 	/*--- Display information modal box ---*/
   	$(".what").click(function(){
@@ -14,4 +16,14 @@ $(document).ready(function(){
 
 });
 
+function newGame () {
+
+	secretNumber();
+
+}
+
+function secretNumber () {
+	var number = Math.floor((Math.random() * 100) + 1);
+	console.log(number);
+};
 
